@@ -1,1 +1,1 @@
-# subtitle-generator
+# Subtitle Generator
