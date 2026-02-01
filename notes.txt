@@ -1,0 +1,3 @@
+WAV is an uncompressed, lossless format 
+MP3 uses lossy compression
+Hence MP4 to WAV not MP3
