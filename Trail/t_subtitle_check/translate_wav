@@ -1,0 +1,20 @@
+##### Libraries
+from faster_whisper import WhisperModel
+from pathlib import Path
+
+# Example usage
+wav_file = r"C:\Users\prave\Work\subtitle-generator\Trail\t_audio_from_pc\system_audio.wav"
+#### Load Model
+model = WhisperModel("small", device="cpu")
+print("Model loaded successfully")
+#### Detect language
+segments, info = model.transcribe(wav_file)
+print("Detected language:", info.language)
+
+from indic_transliteration import sanscript
+from indic_transliteration.sanscript import transliterate
+
+for seg in segments:
+    latin_text = transliterate(seg.text, sanscript.DEVANAGARI, sanscript.ITRANS)
+    print(f"[{seg.start:.2f}s → {seg.end:.2f}s] {latin_text}")
+
